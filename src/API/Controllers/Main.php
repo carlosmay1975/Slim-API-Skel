@@ -33,7 +33,6 @@ final class Main
     public function version(Request $request, Response $response, $args)
     {
         $this->logger->info(__METHOD__ . " :: dispatched");
-        
         return $response->withJson(["status" => "OK"], 200);
     }
 }
