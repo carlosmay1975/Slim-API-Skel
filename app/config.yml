@@ -1,0 +1,25 @@
+settings: 
+    displayErrorDetails: true
+    determineRouteBeforeAppMiddleware: false
+    
+    view:
+        template_path: ../views
+        twig:
+            cache: false
+            debug: true
+            auto_reload: true
+            
+    logger:
+        name: app
+        path: ../log/app.log
+
+    database:
+        host: 127.0.0.1
+        user: root
+        password: 
+        port: 3306
+        name: api
+        #overrides:
+        #    -table1: PK_id
+        #    -table2: ID
+    
