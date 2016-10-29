@@ -1,4 +1,3 @@
-
 # Slim-API-Skel
 
 A basic Slim 3.0 boiler plate with support for Token based Authentication.
@@ -30,3 +29,5 @@ $ git clone https://github.com/carlosmay1975/Slim-API-Skel <target_folder>
 $ composer install
 ```
 
+## Authentication:
+The authentication middleware is checking the Token against a MySQL table out of the box. The callable passed during the TokenOverBasicAuth instantiation can do pretty much anything to validate a token. TokenOverBasicAuth expects the callable to return `true` for a good Token.
