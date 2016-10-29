@@ -25,7 +25,7 @@ final class Main
     public function render(Request $request, Response $response, $args)
     {
         $this->logger->info(__METHOD__ . " :: dispatched");
-        $this->view->render($response, 'base.twig', $x->asArray());
+        $this->view->render($response, 'base.twig', ["title" => "Main Page"]);
         
         return $response;
     }
