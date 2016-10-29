@@ -18,22 +18,22 @@ final class Main
     public function __construct(\Slim\Container $c)
     {
         $this->ci = $c;
-        $this->view = $c->get("view");
-        $this->logger = $c->get("logger");
+        $this->view = $c->get('view');
+        $this->logger = $c->get('logger');
     }
     
     public function render(Request $request, Response $response, $args)
     {
-        $this->logger->info(__METHOD__ . " :: dispatched");
-        $this->view->render($response, 'base.twig', ["title" => "Main Page"]);
+        $this->logger->info(__METHOD__ . ' :: dispatched');
+        $this->view->render($response, 'base.twig', ['title' => 'Main Page']);
         
         return $response;
     }
     
     public function version(Request $request, Response $response, $args)
     {
-        $this->logger->info(__METHOD__ . " :: dispatched");
+        $this->logger->info(__METHOD__ . ' :: dispatched');
         
-        return $response->withJson(["status" => "OK"], 200);
+        return $response->withJson(['status' => 'OK', 'version' => '1.0'], 200);
     }
 }
