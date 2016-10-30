@@ -1,15 +1,15 @@
 <?php
 
-## Authenticate calls against an API Key
-$app->add(new API\Middleware\TokenOverBasicAuth(function($token) {
-        if (!strlen($token)) {
-            return false;
-        }
-    
-        $row = \ORM::forTable('keys')->where('apikey', $token)->findOne();
-    
-        return $row ? true : false;
-    },
-    '/api')
-);
+use API\Helpers\IdiormAuthenticator;
 
+$app->add(new \Slim\Middleware\HttpBasicAuthentication([
+    "path" => "/api",
+    "realm" => "Protected",
+    "authenticator" => new IdiormAuthenticator(),
+    "error" => function ($request, $response, $arguments) {
+        $data = [];
+        $data["status"] = "error";
+        $data["message"] = $arguments["message"];
+        return $response->withJSON($data);
+    }
+]));
