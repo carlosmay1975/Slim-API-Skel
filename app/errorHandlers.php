@@ -5,7 +5,7 @@ $c = $app->getContainer();
 $c['errorHandler'] = function ($c) {
     return function ($request, $response, $exception) use ($c) {
         
-        $status = ['status' => 'error', 'error_description' => 'Internal server error1'];
+        $status = ['status' => 'error', 'error_description' => 'Internal server error'];
         
         $c["logger"]->error($exception->getMessage());
         return $c['response']
@@ -17,7 +17,7 @@ $c['errorHandler'] = function ($c) {
 $c['phpErrorHandler'] = function ($c) {
     return function ($request, $response, $exception) use ($c) {
         
-        $status = ['status' => 'error', 'error_description' => 'Internal server error2'];
+        $status = ['status' => 'error', 'error_description' => 'Internal server error'];
         
         $c["logger"]->error($exception->getMessage());
         return $c['response']
